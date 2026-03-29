@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Poteeswaran M — Frontend Developer</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+<style>
+:root{--bg:#0a0a0f;--surface:#111118;--border:rgba(255,255,255,0.07);--accent:#6ee7b7;--accent2:#38bdf8;--text:#f0f0f5;--muted:#7b7b8f;--card:rgba(255,255,255,0.035)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.7;overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1.25rem 5vw;background:rgba(10,10,15,0.85);backdrop-filter:blur(18px);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.1rem;letter-spacing:-.02em;color:var(--text);text-decoration:none}
+.nav-logo span{color:var(--accent)}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:.875rem;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--accent)}
+#hero{min-height:100vh;display:flex;align-items:center;padding:10rem 5vw 6rem;position:relative;overflow:hidden}
+.blob{position:absolute;border-radius:50%;filter:blur(120px);pointer-events:none}
+.blob1{width:700px;height:700px;background:rgba(110,231,183,.07);top:-100px;right:-150px}
+.blob2{width:600px;height:600px;background:rgba(56,189,248,.06);bottom:-100px;left:-100px}
+.hero-inner{position:relative;z-index:1;max-width:860px}
+.hero-avatar-wrapper{position:relative;width:140px;height:140px;margin-bottom:1.5rem;border-radius:50%;overflow:hidden;background:linear-gradient(135deg,rgba(110,231,183,.18),rgba(56,189,248,.18));box-shadow:0 24px 50px rgba(0,0,0,.22);border:1px solid rgba(255,255,255,.08)}
+.hero-avatar{width:100%;height:100%;border-radius:50%;object-fit:cover;display:block}
+.hero-avatar-fallback{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;border-radius:50%;background:rgba(10,10,15,.55);color:var(--text);font-size:1.2rem;font-weight:700;letter-spacing:.12em;transition:opacity .2s;border:1px solid rgba(255,255,255,.1)}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(110,231,183,.08);border:1px solid rgba(110,231,183,.2);border-radius:100px;padding:.35rem .9rem;font-size:.78rem;font-weight:500;color:var(--accent);letter-spacing:.06em;text-transform:uppercase;margin-bottom:1.75rem;animation:fadeUp .6s ease both}
+.badge-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.8)}}
+.hero-title{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(2.2rem,5vw,4rem);line-height:1.05;letter-spacing:-.03em;margin-bottom:1.5rem;animation:fadeUp .6s .1s ease both}
+.hero-title .line2{background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub{font-size:1.1rem;color:var(--muted);max-width:540px;margin-bottom:2.5rem;font-weight:300;animation:fadeUp .6s .2s ease both}
+.hero-sub strong{color:var(--text);font-weight:500}
+.hero-cta{display:flex;gap:1rem;flex-wrap:wrap;animation:fadeUp .6s .3s ease both}
+.btn-primary{display:inline-flex;align-items:center;gap:.5rem;background:var(--accent);color:#0a0a0f;padding:.75rem 1.75rem;border-radius:8px;font-weight:700;font-size:.9rem;text-decoration:none;transition:transform .2s,box-shadow .2s}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(110,231,183,.25)}
+.btn-ghost{display:inline-flex;align-items:center;gap:.5rem;background:transparent;color:var(--text);padding:.75rem 1.75rem;border-radius:8px;font-weight:500;font-size:.9rem;text-decoration:none;border:1px solid var(--border);transition:border-color .2s,color .2s}
+.btn-ghost:hover{border-color:rgba(255,255,255,.2);color:var(--accent)}
+.hero-scroll{position:absolute;bottom:2.5rem;left:5vw;display:flex;align-items:center;gap:.75rem;color:var(--muted);font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;animation:fadeUp .6s .5s ease both}
+.scroll-line{width:40px;height:1px;background:linear-gradient(90deg,var(--accent),transparent)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+section{padding:7rem 5vw;position:relative;z-index:1}
+.section-label{font-size:.75rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:.75rem}
+.section-title{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(1.8rem,3.5vw,2.75rem);letter-spacing:-.025em;line-height:1.1;margin-bottom:1rem}
+.section-desc{color:var(--muted);max-width:560px;font-size:1rem;font-weight:300;margin-bottom:3.5rem}
+.divider{height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent);margin:0 5vw}
+#about{background:var(--surface)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.about-text p{color:var(--muted);margin-bottom:1.25rem;font-weight:300}
+.about-text p strong{color:var(--text);font-weight:500}
+.about-stats{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.stat-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.5rem;transition:border-color .3s}
+.stat-card:hover{border-color:rgba(110,231,183,.25)}
+.stat-number{font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;color:var(--accent);letter-spacing:-.03em;line-height:1;margin-bottom:.25rem}
+.stat-label{font-size:.8rem;color:var(--muted)}
+.skills-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}
+.skill-group{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2rem;transition:border-color .3s,transform .3s}
+.skill-group:hover{border-color:rgba(110,231,183,.2);transform:translateY(-4px)}
+.skill-group-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.25rem;margin-bottom:1.25rem}
+.icon-fe{background:rgba(110,231,183,.12)}.icon-be{background:rgba(56,189,248,.12)}.icon-tools{background:rgba(167,139,250,.12)}.icon-soft{background:rgba(251,191,36,.12)}
+.skill-group-title{font-family:'Syne',sans-serif;font-weight:700;font-size:.95rem;margin-bottom:1rem}
+.skill-tags{display:flex;flex-wrap:wrap;gap:.5rem}
+.skill-tag{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:6px;padding:.3rem .75rem;font-size:.8rem;color:var(--muted);transition:color .2s,border-color .2s}
+.skill-tag:hover{color:var(--text);border-color:rgba(255,255,255,.15)}
+#projects{background:var(--surface)}
+.projects-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.project-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2rem;display:flex;flex-direction:column;gap:1rem;transition:border-color .3s,transform .3s;position:relative;overflow:hidden}
+.project-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2));opacity:0;transition:opacity .3s}
+.project-card:hover{border-color:rgba(110,231,183,.2);transform:translateY(-4px)}
+.project-card:hover::before{opacity:1}
+.project-header{display:flex;justify-content:space-between;align-items:flex-start}
+.project-icon{width:48px;height:48px;border-radius:12px;background:rgba(110,231,183,.08);border:1px solid rgba(110,231,183,.15);display:flex;align-items:center;justify-content:center;font-size:1.4rem}
+.project-badge{font-size:.7rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:.25rem .6rem;border-radius:4px;background:rgba(110,231,183,.1);color:var(--accent);border:1px solid rgba(110,231,183,.2)}
+.project-title{font-family:'Syne',sans-serif;font-weight:700;font-size:1.1rem;letter-spacing:-.01em}
+.project-desc{color:var(--muted);font-size:.9rem;font-weight:300;line-height:1.65}
+.project-impact{background:rgba(110,231,183,.05);border-left:2px solid var(--accent);padding:.75rem 1rem;border-radius:0 8px 8px 0;font-size:.83rem;color:var(--accent);font-style:italic}
+.project-tech{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:auto}
+.tech-tag{background:rgba(56,189,248,.06);border:1px solid rgba(56,189,248,.15);color:var(--accent2);border-radius:4px;padding:.2rem .55rem;font-size:.75rem;font-weight:500}
+.timeline{position:relative;padding-left:2rem}
+.timeline::before{content:'';position:absolute;top:0;bottom:0;left:0;width:1px;background:linear-gradient(180deg,var(--accent),transparent)}
+.timeline-item{position:relative;margin-bottom:3rem;padding-left:2rem}
+.timeline-dot{position:absolute;left:-2.35rem;top:.3rem;width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 12px rgba(110,231,183,.5)}
+.timeline-date{font-size:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:.5rem}
+.timeline-company{font-family:'Syne',sans-serif;font-weight:700;font-size:1.1rem;margin-bottom:.2rem}
+.timeline-role{color:var(--muted);font-size:.85rem;margin-bottom:1rem}
+.timeline-points{list-style:none;display:flex;flex-direction:column;gap:.5rem}
+.timeline-points li{color:var(--muted);font-size:.9rem;font-weight:300;display:flex;gap:.6rem}
+.timeline-points li::before{content:'→';color:var(--accent);flex-shrink:0;font-size:.85rem;margin-top:.05rem}
+.timeline-points li strong{color:var(--text);font-weight:500}
+#education{background:var(--surface)}
+.edu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.edu-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.75rem;transition:border-color .3s}
+.edu-card:hover{border-color:rgba(110,231,183,.2)}
+.edu-year{font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent2);margin-bottom:.75rem}
+.edu-degree{font-family:'Syne',sans-serif;font-weight:700;font-size:.95rem;margin-bottom:.4rem}
+.edu-school{color:var(--muted);font-size:.83rem;font-weight:300}
+#contact{text-align:center;padding-bottom:8rem}
+.contact-card{max-width:600px;margin:0 auto;background:var(--card);border:1px solid var(--border);border-radius:20px;padding:3.5rem;position:relative;overflow:hidden}
+.contact-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--accent),var(--accent2),transparent)}
+.contact-title{font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:800;margin-bottom:.75rem;letter-spacing:-.02em}
+.contact-sub{color:var(--muted);margin-bottom:2rem;font-weight:300}
+.contact-links{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap}
+.contact-link{display:flex;align-items:center;gap:.5rem;padding:.65rem 1.25rem;border-radius:8px;border:1px solid var(--border);color:var(--muted);text-decoration:none;font-size:.85rem;font-weight:500;transition:all .2s}
+.contact-link:hover{border-color:rgba(110,231,183,.3);color:var(--accent)}
+footer{text-align:center;padding:2rem 5vw;border-top:1px solid var(--border);color:var(--muted);font-size:.8rem}
+footer span{color:var(--accent)}
+@media(max-width:768px){.about-grid,.projects-grid,.edu-grid{grid-template-columns:1fr}.skills-grid{grid-template-columns:1fr 1fr}.nav-links{display:none}.hero-title{font-size:2.6rem}}
+@media(max-width:480px){.skills-grid{grid-template-columns:1fr}.contact-card{padding:2rem 1.5rem}}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+<nav>
+  <a href="#hero" class="nav-logo">P<span>.</span>M</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li><li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li><li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section id="hero">
+  <div class="blob blob1"></div><div class="blob blob2"></div>
+  <div class="hero-inner">
+    <div class="hero-avatar-wrapper">
+      <img src="c:\Users\Poteeswaran\Downloads\poteeswaran M.jpg" alt="Poteeswaran M" class="hero-avatar" onload="this.nextElementSibling.style.display='none'" onerror="this.style.display='none'" />
+      <div class="hero-avatar-fallback">PM</div>
+    </div>
+    <div class="hero-badge"><span class="badge-dot"></span>Open to Frontend Roles · Fresher</div>
+    <h1 class="hero-title">Poteeswaran M<br><span class="line2">Frontend Developer</span></h1>
+    <p class="hero-sub">BCA final-year student who builds <strong>clean, responsive interfaces</strong> that put users first. Passionate about turning ideas into polished digital experiences using modern web technologies.</p>
+    <div class="hero-cta">
+      <a href="#projects" class="btn-primary">View My Work →</a>
+      <a href="mailto:poteeswaran2@gmail.com" class="btn-ghost">📩 Hire Me</a>
+    </div>
+  </div>
+  <div class="hero-scroll"><div class="scroll-line"></div> Scroll to explore</div>
+</section>
+<div class="divider"></div>
+
+<section id="about">
+  <div class="reveal"><p class="section-label">Who I Am</p><h2 class="section-title">Turning Code<br>Into Experiences</h2></div>
+  <div class="about-grid reveal">
+    <div class="about-text">
+      <p>I'm <strong>Poteeswaran M</strong>, a final-year BCA student at Kamaraj College with a hands-on approach to building web products. I believe great software lives at the intersection of clean code and intuitive design.</p>
+      <p>From architecting a full-stack e-commerce platform to completing an industry internship, I've consistently <strong>moved from classroom concepts to real working products</strong>. I write structured, readable code and collaborate effectively in team environments.</p>
+      <p>Currently seeking an <strong>entry-level frontend or full-stack role</strong> where I can grow, contribute meaningfully, and ship features that matter.</p>
+    </div>
+    <div class="about-stats">
+      <div class="stat-card"><div class="stat-number">1+</div><div class="stat-label">Real-world project shipped</div></div>
+      <div class="stat-card"><div class="stat-number">5+</div><div class="stat-label">Technologies mastered</div></div>
+      <div class="stat-card"><div class="stat-number">1</div><div class="stat-label">Industry internship completed</div></div>
+      <div class="stat-card"><div class="stat-number">3+</div><div class="stat-label">Years of focused CS study</div></div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<section id="skills">
+  <div class="reveal"><p class="section-label">What I Know</p><h2 class="section-title">Technical Skills</h2><p class="section-desc">A curated set of tools and technologies I use to build products from concept to deployment.</p></div>
+  <div class="skills-grid reveal">
+    <div class="skill-group"><div class="skill-group-icon icon-fe">🎨</div><div class="skill-group-title">Frontend Development</div><div class="skill-tags"><span class="skill-tag">HTML5</span><span class="skill-tag">CSS3</span><span class="skill-tag">Bootstrap</span></div></div>
+    <div class="skill-group"><div class="skill-group-icon icon-be">⚙️</div><div class="skill-group-title">Backend &amp; Databases</div><div class="skill-tags"><span class="skill-tag">Python</span></div></div>
+    <div class="skill-group"><div class="skill-group-icon icon-tools">🛠️</div><div class="skill-group-title">Tools &amp; Workflow</div><div class="skill-tags"><span class="skill-tag">Git &amp; GitHub</span><span class="skill-tag">VS Code</span></div></div>
+    <div class="skill-group"><div class="skill-group-icon icon-soft">🤝</div><div class="skill-group-title">Professional Skills</div><div class="skill-tags"><span class="skill-tag">Quick Learner</span><span class="skill-tag">Team Collaboration</span><span class="skill-tag">Problem Solving</span><span class="skill-tag">Time Management</span><span class="skill-tag">Agile Mindset</span><span class="skill-tag">Attention to Detail</span></div></div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<section id="projects">
+  <div class="reveal"><p class="section-label">What I've Built</p><h2 class="section-title">Featured Projects</h2><p class="section-desc">Products I designed, built, and shipped — focusing on real-world utility and clean user experience.</p></div>
+  <div class="projects-grid reveal">
+    <div class="project-card">
+      <div class="project-header"><div class="project-icon">📱</div><div class="project-badge">Full Stack</div></div>
+      <div class="project-title">Refurbished Mobile Marketplace</div>
+      <p class="project-desc">Engineered an end-to-end responsive e-commerce platform for buying and selling refurbished smartphones. Implemented a complete shopping workflow — from product listing and dynamic filtering to cart management and a streamlined checkout system.</p>
+      <div class="project-impact">Built a fully functional multi-page e-commerce system, delivering a production-ready shopping experience with database-driven product listings.</div>
+      <div class="project-tech"><span class="tech-tag">HTML5</span><span class="tech-tag">CSS3</span><span class="tech-tag">Bootstrap</span><span class="tech-tag">PHP</span><span class="tech-tag">MySQL</span></div>
+    </div>
+    <div class="project-card">
+      <div class="project-header"><div class="project-icon">📊</div><div class="project-badge">Internship</div></div>
+      <div class="project-title">HR Reporting Dashboard</div>
+      <p class="project-desc">Designed and developed a reporting system during my industry internship to track and visualise employee performance metrics. Applied both frontend and backend skills to deliver a functional tool used in a live professional setting.</p>
+      <div class="project-impact">Delivered a working HR reporting tool within a 1-week sprint, applying full-stack skills in a real professional environment.</div>
+      <div class="project-tech"><span class="tech-tag">HTML</span><span class="tech-tag">CSS</span><span class="tech-tag">PHP</span><span class="tech-tag">SQL</span></div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<section id="experience">
+  <div class="reveal"><p class="section-label">My Journey</p><h2 class="section-title">Experience</h2><p class="section-desc">Hands-on industry exposure that bridged theory with professional practice.</p></div>
+  <div class="timeline reveal">
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-date">May 2025 · 1 Week · thoothukudi</div>
+      <div class="timeline-company">Postulate Info Tech Pvt. Ltd.</div>
+      <div class="timeline-role">Full Stack Developer Intern</div>
+      <ul class="timeline-points">
+        <li>Completed an <strong>end-to-end full-stack internship</strong>, gaining practical experience across the entire development lifecycle from UI to database.</li>
+        <li>Built a <strong>functional HR reporting system</strong> to track employee work records, delivering a working product within a 1-week sprint.</li>
+        <li>Collaborated within a professional team environment, learning how <strong>real-time projects are planned, executed, and reviewed</strong> in an industry setting.</li>
+        <li>Applied both <strong>frontend design and backend logic</strong> concurrently, reinforcing full-stack development fundamentals under real-world conditions.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<section id="education">
+  <div class="reveal"><p class="section-label">Academic Background</p><h2 class="section-title">Education</h2><p class="section-desc">A consistent academic track built on a strong foundation in computer science.</p></div>
+  <div class="edu-grid reveal">
+    <div class="edu-card"><div class="edu-year">2023 – 2026 (Current)</div><div class="edu-degree">BCA – Bachelor of Computer Applications</div><div class="edu-school">Kamaraj College</div></div>
+    <div class="edu-card"><div class="edu-year">2022 – 2023</div><div class="edu-degree">Higher Secondary Certificate (HSC)</div><div class="edu-school">Sathyamurthy Nagar Govt. Higher Secondary School</div></div>
+    <div class="edu-card"><div class="edu-year">2020 – 2021</div><div class="edu-degree">Secondary School Certificate (SSLC)</div><div class="edu-school">Shri Vel's Estate Matriculation H.S. School</div></div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<section id="contact">
+  <div class="reveal"><p class="section-label">Let's Connect</p><h2 class="section-title" style="text-align:center">Open to Opportunities</h2></div>
+  <div class="contact-card reveal">
+    <div class="contact-title">Ready to contribute from day one.</div>
+    <p class="contact-sub">Whether you're looking for a frontend developer, a quick learner to grow with your team, or someone who genuinely cares about what they build — let's talk.</p>
+    <div class="contact-links">
+      <a href="mailto:poteeswaran2@gmail.com" class="contact-link">📧 poteeswaran2@gmail.com</a>
+      <a href="tel:+919952991721" class="contact-link">📞 +91 99529 91721</a>
+      <a href="https://www.linkedin.com/in/poteeswaran" target="_blank" class="contact-link">🔗 LinkedIn</a>
+      <a href="https://poteeswaran02.github.io/portfolio/" target="_blank" class="contact-link">🌐 Portfolio</a>
+    </div>
+  </div>
+</section>
+
+<footer>Designed &amp; built by <span>Poteeswaran M</span> · Chennai, India · 2025</footer>
+<script>
+const reveals=document.querySelectorAll('.reveal');
+const observer=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:.1,rootMargin:'0px 0px -60px 0px'});
+reveals.forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>
