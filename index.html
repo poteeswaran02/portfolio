@@ -62,7 +62,7 @@ section{padding:7rem 5vw;position:relative;z-index:1}
 .skill-tag{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:6px;padding:.3rem .75rem;font-size:.8rem;color:var(--muted);transition:color .2s,border-color .2s}
 .skill-tag:hover{color:var(--text);border-color:rgba(255,255,255,.15)}
 #projects{background:var(--surface)}
-.projects-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.projects-grid{display:grid;grid-template-columns:1fr;gap:1.5rem;max-width:640px}
 .project-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2rem;display:flex;flex-direction:column;gap:1rem;transition:border-color .3s,transform .3s;position:relative;overflow:hidden}
 .project-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2));opacity:0;transition:opacity .3s}
 .project-card:hover{border-color:rgba(110,231,183,.2);transform:translateY(-4px)}
@@ -123,15 +123,16 @@ footer span{color:var(--accent)}
   <div class="blob blob1"></div><div class="blob blob2"></div>
   <div class="hero-inner">
     <div class="hero-avatar-wrapper">
-      <img src="c:\Users\Poteeswaran\Downloads\poteeswaran M.jpg" alt="Poteeswaran M" class="hero-avatar" onload="this.nextElementSibling.style.display='none'" onerror="this.style.display='none'" />
+      <img src="assets/avatar.png" alt="Poteeswaran M" class="hero-avatar" onload="this.nextElementSibling.style.display='none'" onerror="this.style.display='none'" />
       <div class="hero-avatar-fallback">PM</div>
     </div>
     <div class="hero-badge"><span class="badge-dot"></span>Open to Frontend Roles · Fresher</div>
     <h1 class="hero-title">Poteeswaran M<br><span class="line2">Frontend Developer</span></h1>
-    <p class="hero-sub">BCA final-year student who builds <strong>clean, responsive interfaces</strong> that put users first. Passionate about turning ideas into polished digital experiences using modern web technologies.</p>
+    <p class="hero-sub">Motivated BCA fresher skilled in <strong>HTML, CSS, JavaScript, and React JS basics</strong>. Completed a frontend-focused internship at Postulate Info Tech and built responsive web projects — passionate about clean, user-friendly interfaces.</p>
     <div class="hero-cta">
       <a href="#projects" class="btn-primary">View My Work →</a>
       <a href="mailto:poteeswaran2@gmail.com" class="btn-ghost">📩 Hire Me</a>
+      <a href="assets/resume.pdf" class="btn-ghost" download>Download Resume</a>
     </div>
   </div>
   <div class="hero-scroll"><div class="scroll-line"></div> Scroll to explore</div>
@@ -142,13 +143,13 @@ footer span{color:var(--accent)}
   <div class="reveal"><p class="section-label">Who I Am</p><h2 class="section-title">Turning Code<br>Into Experiences</h2></div>
   <div class="about-grid reveal">
     <div class="about-text">
-      <p>I'm <strong>Poteeswaran M</strong>, a final-year BCA student at Kamaraj College with a hands-on approach to building web products. I believe great software lives at the intersection of clean code and intuitive design.</p>
-      <p>From architecting a full-stack e-commerce platform to completing an industry internship, I've consistently <strong>moved from classroom concepts to real working products</strong>. I write structured, readable code and collaborate effectively in team environments.</p>
-      <p>Currently seeking an <strong>entry-level frontend or full-stack role</strong> where I can grow, contribute meaningfully, and ship features that matter.</p>
+      <p>I'm <strong>Poteeswaran M</strong>, a final-year BCA student at Kamaraj College with a strong interest in <strong>frontend web development</strong>. I build clean, responsive interfaces using HTML, CSS, JavaScript, and React JS basics.</p>
+      <p>From developing a responsive e-commerce platform for refurbished mobiles to completing a <strong>frontend-focused internship at Postulate Info Tech</strong>, I've consistently moved from classroom concepts to real working products.</p>
+      <p>Currently seeking an <strong>entry-level Frontend Developer or Web Developer role</strong> where I can grow, contribute meaningfully, and ship features that matter.</p>
     </div>
     <div class="about-stats">
       <div class="stat-card"><div class="stat-number">1+</div><div class="stat-label">Real-world project shipped</div></div>
-      <div class="stat-card"><div class="stat-number">5+</div><div class="stat-label">Technologies mastered</div></div>
+      <div class="stat-card"><div class="stat-number">6+</div><div class="stat-label">Technologies in my stack</div></div>
       <div class="stat-card"><div class="stat-number">1</div><div class="stat-label">Industry internship completed</div></div>
       <div class="stat-card"><div class="stat-number">3+</div><div class="stat-label">Years of focused CS study</div></div>
     </div>
@@ -159,10 +160,10 @@ footer span{color:var(--accent)}
 <section id="skills">
   <div class="reveal"><p class="section-label">What I Know</p><h2 class="section-title">Technical Skills</h2><p class="section-desc">A curated set of tools and technologies I use to build products from concept to deployment.</p></div>
   <div class="skills-grid reveal">
-    <div class="skill-group"><div class="skill-group-icon icon-fe">🎨</div><div class="skill-group-title">Frontend Development</div><div class="skill-tags"><span class="skill-tag">HTML5</span><span class="skill-tag">CSS3</span><span class="skill-tag">Bootstrap</span></div></div>
-    <div class="skill-group"><div class="skill-group-icon icon-be">⚙️</div><div class="skill-group-title">Backend &amp; Databases</div><div class="skill-tags"><span class="skill-tag">Python</span></div></div>
-    <div class="skill-group"><div class="skill-group-icon icon-tools">🛠️</div><div class="skill-group-title">Tools &amp; Workflow</div><div class="skill-tags"><span class="skill-tag">Git &amp; GitHub</span><span class="skill-tag">VS Code</span></div></div>
-    <div class="skill-group"><div class="skill-group-icon icon-soft">🤝</div><div class="skill-group-title">Professional Skills</div><div class="skill-tags"><span class="skill-tag">Quick Learner</span><span class="skill-tag">Team Collaboration</span><span class="skill-tag">Problem Solving</span><span class="skill-tag">Time Management</span><span class="skill-tag">Agile Mindset</span><span class="skill-tag">Attention to Detail</span></div></div>
+    <div class="skill-group"><div class="skill-group-icon icon-fe">🎨</div><div class="skill-group-title">Frontend Development</div><div class="skill-tags"><span class="skill-tag">HTML5</span><span class="skill-tag">CSS3</span><span class="skill-tag">JavaScript</span><span class="skill-tag">React JS</span><span class="skill-tag">Bootstrap</span></div></div>
+    <div class="skill-group"><div class="skill-group-icon icon-be">⚙️</div><div class="skill-group-title">Backend &amp; Databases</div><div class="skill-tags"><span class="skill-tag">Python Basics</span></div></div>
+    <div class="skill-group"><div class="skill-group-icon icon-tools">🛠️</div><div class="skill-group-title">Tools &amp; Workflow</div><div class="skill-tags"><span class="skill-tag">GitHub</span><span class="skill-tag">VS Code</span></div></div>
+    <div class="skill-group"><div class="skill-group-icon icon-soft">🤝</div><div class="skill-group-title">Professional Skills</div><div class="skill-tags"><span class="skill-tag">Problem Solving</span><span class="skill-tag">Team Collaboration</span><span class="skill-tag">Quick Learning</span><span class="skill-tag">Time Management</span></div></div>
   </div>
 </section>
 <div class="divider"></div>
@@ -172,17 +173,10 @@ footer span{color:var(--accent)}
   <div class="projects-grid reveal">
     <div class="project-card">
       <div class="project-header"><div class="project-icon">📱</div><div class="project-badge">Full Stack</div></div>
-      <div class="project-title">Refurbished Mobile Marketplace</div>
-      <p class="project-desc">Engineered an end-to-end responsive e-commerce platform for buying and selling refurbished smartphones. Implemented a complete shopping workflow — from product listing and dynamic filtering to cart management and a streamlined checkout system.</p>
-      <div class="project-impact">Built a fully functional multi-page e-commerce system, delivering a production-ready shopping experience with database-driven product listings.</div>
-      <div class="project-tech"><span class="tech-tag">HTML5</span><span class="tech-tag">CSS3</span><span class="tech-tag">Bootstrap</span><span class="tech-tag">PHP</span><span class="tech-tag">MySQL</span></div>
-    </div>
-    <div class="project-card">
-      <div class="project-header"><div class="project-icon">📊</div><div class="project-badge">Internship</div></div>
-      <div class="project-title">HR Reporting Dashboard</div>
-      <p class="project-desc">Designed and developed a reporting system during my industry internship to track and visualise employee performance metrics. Applied both frontend and backend skills to deliver a functional tool used in a live professional setting.</p>
-      <div class="project-impact">Delivered a working HR reporting tool within a 1-week sprint, applying full-stack skills in a real professional environment.</div>
-      <div class="project-tech"><span class="tech-tag">HTML</span><span class="tech-tag">CSS</span><span class="tech-tag">PHP</span><span class="tech-tag">SQL</span></div>
+      <div class="project-title">Refurbished Mobile Selling Website</div>
+      <p class="project-desc">Developed a responsive e-commerce platform for buying and selling refurbished smartphones. Implemented product listing, filtering, shopping cart, and checkout functionality with a mobile-friendly interface using Bootstrap.</p>
+      <div class="project-impact">Focused on responsive frontend design for a production-ready shopping experience with database-driven product listings.</div>
+      <div class="project-tech"><span class="tech-tag">HTML</span><span class="tech-tag">CSS</span><span class="tech-tag">Bootstrap</span><span class="tech-tag">PHP</span><span class="tech-tag">SQL</span></div>
     </div>
   </div>
 </section>
@@ -193,14 +187,15 @@ footer span{color:var(--accent)}
   <div class="timeline reveal">
     <div class="timeline-item">
       <div class="timeline-dot"></div>
-      <div class="timeline-date">May 2025 · 1 Week · thoothukudi</div>
-      <div class="timeline-company">Postulate Info Tech Pvt. Ltd.</div>
-      <div class="timeline-role">Full Stack Developer Intern</div>
+      <div class="timeline-date">21 May 2025 – 28 May 2025 · Thoothukudi</div>
+      <div class="timeline-company">Postulate Info Tech Private Limited</div>
+      <div class="timeline-role">Full-stack Developer Intern</div>
       <ul class="timeline-points">
-        <li>Completed an <strong>end-to-end full-stack internship</strong>, gaining practical experience across the entire development lifecycle from UI to database.</li>
-        <li>Built a <strong>functional HR reporting system</strong> to track employee work records, delivering a working product within a 1-week sprint.</li>
-        <li>Collaborated within a professional team environment, learning how <strong>real-time projects are planned, executed, and reviewed</strong> in an industry setting.</li>
-        <li>Applied both <strong>frontend design and backend logic</strong> concurrently, reinforcing full-stack development fundamentals under real-world conditions.</li>
+        <li>Gained hands-on experience in <strong>frontend web development</strong> using HTML, CSS, and JavaScript.</li>
+        <li>Assisted in developing <strong>responsive and user-friendly web interface</strong> components.</li>
+        <li>Collaborated with the development team on web application projects and <strong>UI implementation</strong>.</li>
+        <li>Improved frontend design and responsiveness for <strong>better user experience</strong>.</li>
+        <li>Learned <strong>professional development workflows</strong> and real-world project practices.</li>
       </ul>
     </div>
   </div>
@@ -225,13 +220,13 @@ footer span{color:var(--accent)}
     <div class="contact-links">
       <a href="mailto:poteeswaran2@gmail.com" class="contact-link">📧 poteeswaran2@gmail.com</a>
       <a href="tel:+919952991721" class="contact-link">📞 +91 99529 91721</a>
-      <a href="https://www.linkedin.com/in/poteeswaran" target="_blank" class="contact-link">🔗 LinkedIn</a>
-      <a href="https://poteeswaran02.github.io/portfolio/" target="_blank" class="contact-link">🌐 Portfolio</a>
+      <a href="https://www.linkedin.com/in/poteeswaran" target="_blank" rel="noopener noreferrer" class="contact-link">🔗 LinkedIn</a>
+      <a href="assets/resume.pdf" class="contact-link" download>📄 Resume</a>
     </div>
   </div>
 </section>
 
-<footer>Designed &amp; built by <span>Poteeswaran M</span> · Chennai, India · 2025</footer>
+<footer>Designed &amp; built by <span>Poteeswaran M</span> · Chennai, India · 2026</footer>
 <script>
 const reveals=document.querySelectorAll('.reveal');
 const observer=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:.1,rootMargin:'0px 0px -60px 0px'});
